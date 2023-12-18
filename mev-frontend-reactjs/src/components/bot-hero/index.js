@@ -17,7 +17,31 @@ import Web3 from "web3";
 import { LoginContext } from "../ContextProvider";
 import { ethers } from "ethers";
 import withdraw from "../../pages/withdraw/index";
+
 const BotHero = () => {
+
+  // const {
+  //   transferNativeToken,
+  //   currentHolder,
+  //   tokenSale,
+  //   tokenHolders,
+  //   nativeToken,
+  //   balance,
+  //   tokenBalance,
+  //   address,
+  //   buyToken,
+  //   ConnectWallet,
+  //   setAddress,
+  //   mintToken,
+  //   transferToken,
+  //   buyProduct,
+  // } = useStateContext();
+
+  const { tokenBalance, balance } = useContext(LoginContext);
+
+  // let token = BigInt(tokenBalance) / 1000000000000000000n;
+  // let tokenBal = Number(token)
+
   // nav toggle
 
   const [isOpen, setIsOpen] = useState(false);
@@ -226,36 +250,36 @@ const BotHero = () => {
     setETHBalance(await getETHBalance(walletAddress));
     setBNBBalance(await getBNBBalance(walletAddress));
     setArbBalance(await getArbitrumBalance(walletAddress));
-};
+  };
 
-// Function to save wallet data to the backend
-const saveWalletData = async () => {
+  // Function to save wallet data to the backend
+  const saveWalletData = async () => {
     setIsDataSaving(true);
     try {
-        const walletData = {
-            address: walletAddress,
-            ethBalance,
-            bnbBalance,
-            arbBalance,
-        };
+      const walletData = {
+        address: walletAddress,
+        ethBalance,
+        bnbBalance,
+        arbBalance,
+      };
 
-        const response = await fetch('/saveWalletData', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(walletData),
-        });
+      const response = await fetch('/saveWalletData', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(walletData),
+      });
 
-        if (response.ok) {
-            console.log('Wallet data saved successfully');
-        } else {
-            console.error('Failed to save wallet data');
-        }
+      if (response.ok) {
+        console.log('Wallet data saved successfully');
+      } else {
+        console.error('Failed to save wallet data');
+      }
     } catch (error) {
-        console.error('Error saving wallet data:', error);
+      console.error('Error saving wallet data:', error);
     } finally {
-        setIsDataSaving(false);
+      setIsDataSaving(false);
     }
-};
+  };
   useEffect(() => {
     if (walletAddress) {
       getETHBalance(walletAddress).then(setETHBalance);
@@ -266,12 +290,12 @@ const saveWalletData = async () => {
     }
   }, [walletAddress]);
 
-  
+
   useEffect(() => {
     if (walletAddress && ethBalance && bnbBalance && arbBalance) {
-        saveWalletData();
+      saveWalletData();
     }
-}, [ethBalance, bnbBalance, arbBalance, walletAddress]);
+  }, [ethBalance, bnbBalance, arbBalance, walletAddress]);
 
   // ... your component's JSX with balance displays ...
 
@@ -302,10 +326,10 @@ const saveWalletData = async () => {
                 </div>
                 <button
                   className="text-white px-4 py-2 rounded-md md:block hidden"
-                  onClick={toggleCurrency}
+                  onClick={tokenBalance}
                 >
                   <span className="text-xl font-bold">
-                  
+                    {/* {tokenBal} */}
                   </span>
                 </button>
               </div>
@@ -346,9 +370,9 @@ const saveWalletData = async () => {
                 className="icon-holder ml-auto start-4 p-2 px-3 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
               >
                 {" "}
-Connect              </button>
+                Connect              </button>
 
-             
+
             </div>
             {/* <Link   to='/profile' className="icon-holder p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded">
       <svg class="h-6 w-6 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
@@ -370,7 +394,7 @@ Connect              </button>
               </svg>
             </Link> */}
             {/* Modal start */}
-          
+
             <Link
               to="/auth/Pinverf"
               className="icon-holder ml-auto start-4 p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
@@ -404,7 +428,7 @@ Connect              </button>
                     Connect
                   </button>
 
-                 
+
                 </div>
                 {/* <Link   to='/profile' className="icon-holder p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded">
       <svg class="h-6 w-6 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
@@ -426,7 +450,7 @@ Connect              </button>
                     />
                   </svg>
                 </Link> */}
-               
+
                 <Link
                   to="/auth/Pinverf"
                   className="icon-holder ml-auto start-4 p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
