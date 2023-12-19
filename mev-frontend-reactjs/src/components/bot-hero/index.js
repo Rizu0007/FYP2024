@@ -15,7 +15,7 @@ import arb from "../../assets/images/svg/arb.svg";
 import bin from "../../assets/images/currency/okkk.png";
 import Web3 from "web3";
 import { LoginContext } from "../ContextProvider";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import withdraw from "../../pages/withdraw/index";
 
 const BotHero = () => {
@@ -37,7 +37,7 @@ const BotHero = () => {
   //   buyProduct,
   // } = useStateContext();
 
-  const { tokenBalance, balance } = useContext(LoginContext);
+  const { tokenBalance, balance, address } = useContext(LoginContext);
 
   // let token = BigInt(tokenBalance) / 1000000000000000000n;
   // let tokenBal = Number(token)
@@ -370,7 +370,7 @@ const BotHero = () => {
                 className="icon-holder ml-auto start-4 p-2 px-3 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
               >
                 {" "}
-                Connect              </button>
+                {address}              </button>
 
 
             </div>
@@ -425,7 +425,7 @@ const BotHero = () => {
                     onClick={openNetworkForm}
                     className="icon-holder ml-auto p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
                   >
-                    Connect
+                    {address}
                   </button>
 
 

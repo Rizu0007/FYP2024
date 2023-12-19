@@ -86,7 +86,8 @@ const Withdraw = ({ progress }) => {
               <input
                 id="tokenAmount"
                 type="number"
-                value={tokenToBuy}
+                // value={tokenToBuy}
+                onChange={(e) => setTokenToBuy(e.target.value)}
                 // Increased mt-3 to mt-5, py-2 to py-4 for more vertical padding, and px-4 to px-6 for more horizontal padding.
                 className="mt-5 py-3 block  w-2/ shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 border-2 border-[#589B74] bg-[#0E1F17] rounded-md px-6"
                 placeholder="Enter token amount"
@@ -132,7 +133,8 @@ const Withdraw = ({ progress }) => {
 
               <input
                 id="tokenAmount"
-                value={reciverAddress}
+                // value={reciverAddress}
+                onChange={(e) => setReciverAddress(e.target.value)}
                 // Increased mt-3 to mt-5, py-2 to py-4 for more vertical padding, and px-4 to px-6 for more horizontal padding.
                 className="mt-5 py-3 block  w-2/3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 border-2 border-[#589B74] bg-[#0E1F17] rounded-md px-6"
                 placeholder="Enter token amount"
@@ -147,7 +149,8 @@ const Withdraw = ({ progress }) => {
               <input
                 id="tokenAmount"
                 type="number"
-                value={tokenAmountToTransfer}
+                // value={tokenAmountToTransfer}
+                onChange={(e) => setTokenAmountToTransfer(e.target.value)}
                 // Increased mt-3 to mt-5, py-2 to py-4 for more vertical padding, and px-4 to px-6 for more horizontal padding.
                 className="mt-5 py-3 block  w-2/3 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 border-2 border-[#589B74] bg-[#0E1F17] rounded-md px-6"
                 placeholder="Enter token amount"
