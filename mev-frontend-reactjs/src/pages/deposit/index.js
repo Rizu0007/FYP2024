@@ -86,7 +86,6 @@ const Deposit = () => {
       </p>
     );
   }
-  //////////////////////////////
 
   const [amount, setAmount] = useState(0);
   const [alert, setAlert] = useState({});
