@@ -1,4 +1,3 @@
-"use strict"
 // LoginContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { ethers } from 'ethers';
@@ -72,8 +71,7 @@ const LoginDataProvider = ({ children }) => {
 
       if (account) {
         let tokenBal = await TOKEN_CONTRACT.balanceOf(account)
-        console.log(tokenBal.toString())
-        setTokenBalance(tokenBal.toString())
+        setTokenBalance(String(tokenBal))
       } else {
         setTokenBalance(0)
       }
@@ -92,9 +90,9 @@ const LoginDataProvider = ({ children }) => {
         tokenSymbol: tokenSymbol,
         tokenOwner: tokenOwner,
         tokenStandard: tokenStandard,
-        tokenTotalSupply: ethers.utils.formatEther(tokenTotalSupply.toString()),
+        tokenTotalSupply: ethers.utils.formatEther(String(tokenTotalSupply)),
         tokenBalance: tokenBalance,
-        tokenHolders: tokenHolders.toNumber()
+        tokenHolders: Number(tokenHolders)
       }
 
       setNativeToken(nativeToken);
@@ -108,10 +106,10 @@ const LoginDataProvider = ({ children }) => {
         const getTokenHolderData = await TOKEN_CONTRACT.getTokenHolderData(account);
 
         const currentHolder = {
-          tokenId: getTokenHolderData[0].toNumber(),
+          tokenId: Number(getTokenHolderData[0]),
           from: getTokenHolderData[1],
           to: getTokenHolderData[2],
-          totalToken: ethers.utils.formatEther(getTokenHolderData[3].toString()),
+          totalToken: ethers.utils.formatEther(String(getTokenHolderData[3])),
           tokenHolder: getTokenHolderData[4]
         }
 
@@ -125,9 +123,9 @@ const LoginDataProvider = ({ children }) => {
       const tokenSaleBalance = await TOKEN_CONTRACT.balanceOf("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512");
 
       const tokenSale = {
-        tokenPrice: ethers.utils.formatEther(tokenPrice.toString()),
-        tokenSold: tokenSold.toNumber(),
-        tokenSaleBalance: ethers.utils.formatEther(tokenSaleBalance.toString())
+        tokenPrice: ethers.utils.formatEther(String(tokenPrice)),
+        tokenSold: Number(tokenSold),
+        tokenSaleBalance: ethers.utils.formatEther(String(tokenSaleBalance))
       }
 
       setTokenSale(tokenSale);
@@ -147,7 +145,9 @@ const LoginDataProvider = ({ children }) => {
 
   const buyToken = async (nToken) => {
     try {
-      const amount = ethers.utils.parseUnits(nToken.toString(), "ether")
+      // const amount = ethers.utils.parseUnits(nToken.toString(), "ether")
+      const tokenInString = String(nToken)
+      const amount = ethers.utils.parseUnits(tokenInString, "ether")
       const contract = await connectingTokenSaleContract();
 
       const buying = await contract.buyToken(nToken, {
@@ -202,7 +202,8 @@ const LoginDataProvider = ({ children }) => {
 
   const transferToken = async (address, nToken) => {
     try {
-      const tokens = nToken.toString();
+      const tokens = String(nToken);
+      // const tokens = nToken.toString();
       const transferAmount = ethers.utils.parseEther(tokens);
 
       const contract = await connectingTokenContract();
@@ -223,7 +224,7 @@ const LoginDataProvider = ({ children }) => {
 
   const buyProduct = async (nToken) => {
     try {
-      const tokens = nToken.toString();
+      const tokens = String(nToken);
       const transferAmount = ethers.utils.parseEther(tokens);
 
       const contract = await connectingTokenContract();
