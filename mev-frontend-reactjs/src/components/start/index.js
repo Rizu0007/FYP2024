@@ -106,7 +106,9 @@ const Start = () => {
     description: '',
     size: '',
     location: '',
-    price: ''
+    price: '',
+    categoryMess: '',  // new field for Category Mess
+  categoryEshop: '', 
   });
 
 
@@ -207,31 +209,7 @@ const Start = () => {
             This contract allows you to transfer your tokens to it. When you want to make a purchase, you send a transaction to the contract, and it uses your tokens to complete the transaction, enabling you to buy products or services in a secure and automated way..
 
           </div>
-          {/* <div className="flex justify-center">
-            <Link
-              onClick={() => setShowProfit(true)}
-              href="#"
-              class="border-2 border-[#589B74] bg-[#0E1F17] rounded-md   w-fit gap-1 px-4 inline-flex items-center justify-center p-4 text-base font-medium text-white-500   "
-            >
-              <span class="text-xl">Profit Withdrawal Settings </span>
-              <svg
-                class="h-8 w-8 text-gray-200"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                {" "}
-                <path stroke="none" d="M0 0h24v24H0z" />{" "}
-                <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />{" "}
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </Link>
-          </div> */}
+          
 
           <div className="text-white font bold flex justify-center items-center"></div>
           <div className="flex justify-center">
@@ -269,6 +247,7 @@ const Start = () => {
             </div>
           </div>
           <div className=" flex items-center justify-center">
+            
             <Link
               href="#"
               className="border-2 border-[#589B74] bg-[#0E1F17] rounded-md   w-[300px] px-4 inline-flex items-center justify-center p-4 text-base font-medium text-white-500   "
@@ -313,6 +292,26 @@ const Start = () => {
                   </div>
                   <div className="relative p-6 flex-auto">
                     <form className="bg-black shadow-md rounded px-8  pb-8 w-full max-w-2xl">
+           
+
+      {/* New Category E-shop field */}
+      <div class="flex flex-col">
+        <label for="selectedCategory" class="mb-1 text-xs sm:text-sm tracking-wide text-white">
+          Select Category
+        </label>
+        <select
+          id="selectedCategory"
+          name="selectedCategory"
+          class="bg-black text-white border-2 border-[#00FFA2] text-sm sm:text-base pl-10 pr-4 rounded-lg w-full py-4 focus:outline-none"
+          value={productData.selectedCategory}
+          onChange={handleChange}
+        >
+          <option value="">Choose a Category</option>
+          <option value="mess">Category Mess-1</option>
+          <option value="eshop">Category E-Shop</option>
+        </select>
+      </div>
+
                       <div class="flex flex-col ">
                         <label
                           for="name"

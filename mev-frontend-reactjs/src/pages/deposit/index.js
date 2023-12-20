@@ -19,6 +19,8 @@ import QRCode from "react-qr-code";
 import { LoginContext } from "../../components/ContextProvider";
 
 const Deposit = () => {
+  const { tokenBalance, balance, address } = useContext(LoginContext);
+
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [importedWalletInfo, setImportedWalletInfo] = useState(null);
@@ -177,7 +179,7 @@ const Deposit = () => {
               <div className="border-[4px] border-[#589B74] bg-white p-3">
                 <QRCode
                   title="Mev"
-                  value={walletAddress}
+                  value={address}
                   bgColor="white"
                   fgColor="150"
                   size="150"
@@ -207,7 +209,7 @@ const Deposit = () => {
           <div className="py-2 flex  flex-wrap justify-center">
             <div className="text-white w-auto  h-auto max-[525px]:w-full  py-3 gap-10 border-2 border-[#589B74] bg-[#0E1F17] ">
               <p className="">
-                <CopyToClipboardText textToCopy={walletAddress} />
+                <CopyToClipboardText textToCopy={address} />
               </p>
             </div>
           </div>

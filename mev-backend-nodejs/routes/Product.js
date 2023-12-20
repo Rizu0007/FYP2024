@@ -29,7 +29,7 @@ router.post('/products', upload.single('image'), async (req, res) => {
       description: req.body.description,
       location: req.body.location,
       size: req.body.size, // Include the size
-
+      category: req.body.category,
       price: req.body.price,
       image: {
         data: fs.readFileSync(imagePath),

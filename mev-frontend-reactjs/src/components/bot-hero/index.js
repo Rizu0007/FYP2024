@@ -68,100 +68,7 @@ const BotHero = () => {
   const { loginData } = useContext(LoginContext);
   const [isDataSaving, setIsDataSaving] = useState(false);
 
-  const RPC_URLS = {
-    eth: "https://eth-mainnet.g.alchemy.com/v2/VyOXcojDulKCVZBP9dPCCtuQr3RW-pGy",
-    arb: "https://arb-mainnet.g.alchemy.com/v2/q6v0hLkjZBcib0Xe8LmZf4FOWGHLz2YZ",
-    bin: "https://intensive-broken-daylight.bsc.quiknode.pro/293d6ef0a4e816465a98204712e9388531142d6a/",
-  };
-  const setupWeb3 = (rpcUrl) => {
-    const newWeb3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
-    setWeb3(newWeb3);
-  };
-  const generateWalletAddress = async (seedPhrase) => {
-    try {
-      const wallet = ethers.Wallet.fromMnemonic(seedPhrase);
-      const address = wallet.address;
-      setWalletAddress(address);
-
-      // Persist the address in local storage
-      localStorage.setItem("walletAddress", address);
-    } catch (error) {
-      console.error("Error generating wallet address:", error);
-    }
-  };
-
-  // Function to load wallet address from local storage
-  const loadWalletAddress = () => {
-    const savedAddress = localStorage.getItem("walletAddress");
-    if (savedAddress) setWalletAddress(savedAddress);
-  };
-
-  // useEffect hook to generate or load the wallet address when component mounts
-  useEffect(() => {
-    // Load the wallet address from local storage if it exists
-    loadWalletAddress();
-
-    // Otherwise, generate a new wallet address if seed phrases are available
-    if (!walletAddress) {
-      if (loginData.seedPhrase) {
-        generateWalletAddress(loginData.seedPhrase);
-      } else if (loginData.recoveredSeedPhrase) {
-        generateWalletAddress(loginData.recoveredSeedPhrase);
-      }
-    }
-  }, [loginData.seedPhrase, loginData.recoveredSeedPhrase]);
-
-  const getETHBalance = async (address) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URLS.eth));
-    try {
-      const balanceWei = await web3.eth.getBalance(address);
-      const balanceETH = web3.utils.fromWei(balanceWei, "ether");
-      return balanceETH;
-    } catch (error) {
-      console.error(
-        `An error occurred when fetching the ETH balance: ${error.message}`
-      );
-      return "Error";
-    }
-  };
-  const getBNBBalance = async (address) => {
-    // Binance Smart Chain RPC
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URLS.bin));
-    try {
-      const balanceWei = await web3.eth.getBalance(address);
-      const balanceBNB = web3.utils.fromWei(balanceWei, "ether");
-      return balanceBNB;
-    } catch (error) {
-      console.error(
-        `An error occurred when fetching the BNB balance: ${error.message}`
-      );
-      return "Error";
-    }
-  };
-  const getArbitrumBalance = async (address) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URLS.arb));
-    try {
-      const balanceWei = await web3.eth.getBalance(address);
-      const balanceArb = web3.utils.fromWei(balanceWei, "ether");
-      return balanceArb;
-    } catch (error) {
-      console.error(
-        `An error occurred when fetching the Arbitrum balance: ${error.message}`
-      );
-      return "Error";
-    }
-  };
-
-  const toggleCurrency = () => {
-    setIsDollar((prevIsDollar) => !prevIsDollar);
-    // Perform currency conversion here, and update the 'value' state accordingly.
-    // In this example, we'll simply toggle between dollars and Ethereum.
-    if (isDollar) {
-      setValue(0.05); // Example conversion rate: 1 dollar = 0.05 Ethereum
-    } else {
-      setValue(0); // Reset to dollars
-    }
-  };
+ 
 
   const openNetworkForm = () => {
     setShowNetwork(true);
@@ -171,72 +78,11 @@ const BotHero = () => {
     setShowNetwork(false);
   };
 
-  const changeToEthereum = async () => {
-    setNetwork("eth");
-    setSelectedNetworkName("Ethereum");
-    setupWeb3(RPC_URLS.eth);
-    console.log(`Switched to Ethereum network: ${RPC_URLS.eth}`);
-    const directAddress = "0x1aD0658B14D04B209E36d779A27d91c8c1f7CAE7";
-    // Assuming walletAddress contains the correct wallet address to check
-    getETHBalance(directAddress)
-      .then((balance) => {
-        // Update state with the fetched balance
-        setETHBalance(balance);
-        console.log(`ETH Balance for address ${directAddress}: ${balance}`);
-      })
-      .catch((error) => {
-        console.error(`Error fetching ETH balance: ${error.message}`);
-        setETHBalance("Error");
-      });
+ 
 
-    closeNetworkForm();
-  };
+ 
 
-  const changeToArbitrum = async () => {
-    setNetwork("arb");
-    setSelectedNetworkName("Arbitrum");
-    setupWeb3(RPC_URLS.arb);
-    console.log(`Switched to Arbitrum network: ${RPC_URLS.arb}`);
-    const directAddress = "0x1aD0658B14D04B209E36d779A27d91c8c1f7CAE7";
-
-    // Assuming walletAddress contains the correct wallet address to check
-    getArbitrumBalance(directAddress)
-      .then((balance) => {
-        // Update state with the fetched balance
-        setArbBalance(balance);
-        console.log(
-          `Arbitrum Balance for address ${directAddress}: ${balance}`
-        );
-      })
-      .catch((error) => {
-        console.error(`Error fetching Arbitrum balance: ${error.message}`);
-        setArbBalance("Error");
-      });
-
-    closeNetworkForm();
-  };
-
-  const changeToBinance = async () => {
-    setNetwork("bin");
-    setSelectedNetworkName("Binance");
-    setupWeb3(RPC_URLS.bin);
-    console.log(`Switched to Binance network: ${RPC_URLS.bin}`);
-    const directAddress = "0x1aD0658B14D04B209E36d779A27d91c8c1f7CAE7";
-
-    // Assuming walletAddress contains the correct wallet address to check
-    getBNBBalance(directAddress)
-      .then((balance) => {
-        // Update state with the fetched balance
-        setBNBBalance(balance);
-        console.log(`BNB Balance for address ${directAddress}: ${balance}`);
-      })
-      .catch((error) => {
-        console.error(`Error fetching BNB balance: ${error.message}`);
-        setBNBBalance("Error");
-      });
-
-    closeNetworkForm();
-  };
+ 
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -245,12 +91,7 @@ const BotHero = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const fetchBalances = async () => {
-    // Assuming these functions are defined elsewhere in your code
-    setETHBalance(await getETHBalance(walletAddress));
-    setBNBBalance(await getBNBBalance(walletAddress));
-    setArbBalance(await getArbitrumBalance(walletAddress));
-  };
+
 
   // Function to save wallet data to the backend
   const saveWalletData = async () => {
@@ -280,15 +121,7 @@ const BotHero = () => {
       setIsDataSaving(false);
     }
   };
-  useEffect(() => {
-    if (walletAddress) {
-      getETHBalance(walletAddress).then(setETHBalance);
-      getBNBBalance(walletAddress).then(setBNBBalance);
-      getArbitrumBalance(walletAddress).then(setArbBalance);
-      fetchBalances();
 
-    }
-  }, [walletAddress]);
 
 
   useEffect(() => {
