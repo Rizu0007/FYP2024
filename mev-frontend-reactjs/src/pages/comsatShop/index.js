@@ -121,7 +121,7 @@ function Stop() {
                         d="M10.933 19.231l-7.668-4.13-1.37.739a.75.75 0 000 1.32l9.75 5.25c.221.12.489.12.71 0l9.75-5.25a.75.75 0 000-1.32l-1.37-.738-7.668 4.13a2.25 2.25 0 01-2.134-.001z">
                       </path>
                     </svg>
-                    <span class="ml-1">MESS 2</span>
+                    <span class="ml-1">E-Shop</span>
                   </a>
                 </li>
                 <li class="z-30 flex-auto text-center">
@@ -148,9 +148,8 @@ function Stop() {
               <div class="border-b mb-5 flex justify-between text-sm">
                 <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
 
-                  <a href="#" class="font-semibold inline-block">MENU BLog</a>
+                  <a href="#" class="font-semibold inline-block">All the Product</a>
                 </div>
-                <a href="#">See All</a>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10  placeholder-shown:">
@@ -195,94 +194,84 @@ function Stop() {
               </div>
               {showModal && selectedProduct && (
                 <>
-                  <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                    <div className="relative w-4/5 my-6 mx-auto max-w-2/3 border-4 border-[#00FFA2]">
-                      <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none">
-                        <div className="flex items-start justify-between p-5 border-b border-solid  rounded-t ">
-                          <h3 className="text-3xl font=semibold">General Info</h3>
-                          <button
-                            className="bg-transparent border-0 text-black float-right"
+                        <div className="fixed inset-0 z-50 flex justify-center items-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+            <div className="relative w-4/5 my-6 mx-auto max-w-3xl bg-black rounded-lg shadow-xl border-4 border-[#00FFA2] transition duration-500 ease-in-out transform">
+                <div className="p-5 border-b border-[#00FFA2]  rounded-t">
+                    <div className="flex items-start justify-between">
+                        <h3 className="text-2xl font-semibold text-[#00FFA2]">Product Details</h3>
+                        <button
+                            className="p-1 ml-auto bg-transparent border-0 text-gray-500 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                             onClick={() => setShowModal(false)}
-                          >
-                            <span className="text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 py-0 rounded-full">
-                              x
+                        >
+                            <span className="text-gray-500 hover:text-gray-700 h-6 w-6 text-2xl block rounded-full transition duration-150 ease-in-out">
+                                ×
                             </span>
-                          </button>
-                        </div>
-                        <div class="bg- py-8">
-                          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex flex-col md:flex-row -mx-4">
-                              <div className="md:flex-1 px-4">
-                                <div className="h-[260px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                                  <img className="w-full h-full object-cover" src={selectedProduct.image} alt={selectedProduct.name} />
-                                </div>
-                                <div class="flex -mx-2 mb-4">
-                                  <div class="w-1/2 px-2">
-                                    <button class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
-                                  </div>
-                                  <div class="w-1/2 px-2">
-                                    <button 
-                                      onClick={() => buyProduct(selectedProduct.price)} 
-                                       class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"> Buy</button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="md:flex-1 px-4">
-                                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                                  {selectedProduct.name}
-                                </h2>
-                                {/* Price and Availability */}
-                                <div className="flex mb-4">
-                                  <div className="mr-4">
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                                    <span className="text-gray-600 dark:text-gray-300">{selectedProduct.price}</span>
-                                  </div>
-
-                                  <div>
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
-                                    <span className="text-gray-600 dark:text-gray-300">In Stock</span>
-                                  </div>
-                                </div>
-                                <div className="flex mb-4">
-                                  <div className="mr-4">
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                                    <span className=" text-[#00FFA2] font-bold text-xl	">{selectedProduct.Price}</span>
-                                  </div>
-
-                                  <div>
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Category:</span>
-                                    <span className="text-gray-600 dark:text-gray-300">{selectedProduct.category}</span>
-                                  </div>
-                                </div>
-                                {/* Product Description */}
-                                <div>
-                                  <span className="font-bold text-gray-700 dark:text-gray-300">Category:</span>
-                                  <span className="text-gray-600 dark:text-gray-300">{selectedProduct.location}</span>
-                                </div>
-                                <div>
-                                  <span className="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
-                                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                                    {selectedProduct.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                          <button
-                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                            type="button"
-                            onClick={() => { setShowModal(false); setSelectedProduct(null); }}
-                          >
-                            Close
-                          </button>
-
-                        </div>
-                      </div>
+                        </button>
                     </div>
-                  </div>
+                </div>
+
+                <div className="relative p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <img className="w-full h-64 object-cover rounded-lg" src={selectedProduct.image} alt={selectedProduct.name} />
+                        <div className="mt-4 flex justify-between items-center">
+                            <button 
+                                onClick={() => buyProduct(selectedProduct.price)} 
+                                className="bg-blue-500 text-white py-2 px-4 rounded-lg font-bold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-bold mb-2 text-blue-400">{selectedProduct.name}</h2>
+                        <div className="mb-4">
+                            <div className="mb-2">
+                                <span className="font-semibold text-gray-700">Price:</span>
+                                <span className="ml-2 text-[#00FFA2] font-semibold">{selectedProduct.price}</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="font-semibold text-gray-700">Availability:</span>
+                                <span className="ml-2 text-gray-600">In Stock</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.category}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Food Type:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.size}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.location}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.category}</span>
+                            </div>
+                        </div>
+
+                        <div className="text-gray-700">
+                            <span className="font-semibold">Product Description:</span>
+                            <p className="text-white mt-2">
+                                {selectedProduct.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
+                    <button
+                        className="text-red-500 background-transparent font-bold uppercase text-sm px-6 py-2 rounded outline-none focus:outline-none mr-1 mb-1 transition duration-150 ease-in-out"
+                        type="button"
+                        onClick={() => { setShowModal(false); }}
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
                 </>
               )}
             </div>
@@ -294,9 +283,9 @@ function Stop() {
             <div class="border-b mb-5 flex justify-between text-sm">
                 <div class="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
 
-                  <a href="#" class="font-semibold inline-block">MENU BLog</a>
+                  <a href="#" class="font-semibold inline-block">ALL Product</a>
                 </div>
-                <a href="#">See All</a>
+                {/* <a href="#">See All</a> */}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10  placeholder-shown:">
@@ -341,94 +330,83 @@ function Stop() {
               </div>
               {showModal && selectedProduct && (
                 <>
-                  <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                    <div className="relative w-4/5 my-6 mx-auto max-w-2/3 border-4 border-[#00FFA2]">
-                      <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none">
-                        <div className="flex items-start justify-between p-5 border-b border-solid  rounded-t ">
-                          <h3 className="text-3xl font=semibold">General Info</h3>
-                          <button
-                            className="bg-transparent border-0 text-black float-right"
+                     <div className="fixed inset-0 z-50 flex justify-center items-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+            <div className="relative w-4/5 my-6 mx-auto max-w-3xl bg-black rounded-lg shadow-xl border-4 border-[#00FFA2] transition duration-500 ease-in-out transform">
+                <div className="p-5 border-b border-[#00FFA2]  rounded-t">
+                    <div className="flex items-start justify-between">
+                        <h3 className="text-2xl font-semibold text-[#00FFA2]">Product Details</h3>
+                        <button
+                            className="p-1 ml-auto bg-transparent border-0 text-gray-500 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                             onClick={() => setShowModal(false)}
-                          >
-                            <span className="text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 py-0 rounded-full">
-                              x
+                        >
+                            <span className="text-gray-500 hover:text-gray-700 h-6 w-6 text-2xl block rounded-full transition duration-150 ease-in-out">
+                                ×
                             </span>
-                          </button>
-                        </div>
-                        <div class="bg- py-8">
-                          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex flex-col md:flex-row -mx-4">
-                              <div className="md:flex-1 px-4">
-                                <div className="h-[260px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                                  <img className="w-full h-full object-cover" src={selectedProduct.image} alt={selectedProduct.name} />
-                                </div>
-                                <div class="flex -mx-2 mb-4">
-                                  <div class="w-1/2 px-2">
-                                    <button class="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
-                                  </div>
-                                  <div class="w-1/2 px-2">
-                                    <button 
-                                      onClick={() => buyProduct(selectedProduct.price)} 
-                                       class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"> Buy</button>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="md:flex-1 px-4">
-                                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
-                                  {selectedProduct.name}
-                                </h2>
-                                {/* Price and Availability */}
-                                <div className="flex mb-4">
-                                  <div className="mr-4">
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                                    <span className="text-[#00FFA2]  text-xl text">{selectedProduct.price}</span>
-                                  </div>
-
-                                  <div>
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
-                                    <span className="text-gray-600 dark:text-gray-300">In Stock</span>
-                                  </div>
-                                </div>
-                                <div className="flex mb-4">
-                                  <div className="mr-4">
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                                    <span className=" text-green-800 font-bold	">{selectedProduct.location}</span>
-                                  </div>
-
-                                  <div>
-                                    <span className="font-bold text-gray-700 dark:text-gray-300">Category:</span>
-                                    <span className="text-gray-600 dark:text-gray-300">{selectedProduct.size}</span>
-                                  </div>
-                                </div>
-                                {/* Product Description */}
-                                <div>
-                                  <span className="font-bold text-gray-700 dark:text-gray-300">Category:</span>
-                                  <span className="text-gray-600 dark:text-gray-300">{selectedProduct.location}</span>
-                                </div>
-                                <div>
-                                  <span className="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
-                                  <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                                    {selectedProduct.description}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                          <button
-                            className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                            type="button"
-                            onClick={() => { setShowModal(false); setSelectedProduct(null); }}
-                          >
-                            Close
-                          </button>
-
-                        </div>
-                      </div>
+                        </button>
                     </div>
-                  </div>
+                </div>
+
+                <div className="relative p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <img className="w-full h-64 object-cover rounded-lg" src={selectedProduct.image} alt={selectedProduct.name} />
+                        <div className="mt-4 flex justify-between items-center">
+                            <button 
+                                onClick={() => buyProduct(selectedProduct.price)} 
+                                className="bg-blue-500 text-white py-2 px-4 rounded-lg font-bold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50 transition duration-150 ease-in-out">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="text-xl font-bold mb-2 text-blue-400">{selectedProduct.name}</h2>
+                        <div className="mb-4">
+                            <div className="mb-2">
+                                <span className="font-semibold text-gray-700">Price:</span>
+                                <span className="ml-2 text-[#00FFA2] font-semibold">{selectedProduct.price}</span>
+                            </div>
+                            <div className="mb-2">
+                                <span className="font-semibold text-gray-700">Availability:</span>
+                                <span className="ml-2 text-gray-600">In Stock</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.category}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Food Type:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.size}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.location}</span>
+                            </div>
+                            <div>
+                                <span className="font-semibold text-gray-700">Category:</span>
+                                <span className="ml-2 text-[#00FFA2]">{selectedProduct.category}</span>
+                            </div>
+                        </div>
+
+                        <div className="text-gray-700">
+                            <span className="font-semibold">Product Description:</span>
+                            <p className="text-white mt-2">
+                                {selectedProduct.description}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
+                    <button
+                        className="text-red-500 background-transparent font-bold uppercase text-sm px-6 py-2 rounded outline-none focus:outline-none mr-1 mb-1 transition duration-150 ease-in-out"
+                        type="button"
+                        onClick={() => { setShowModal(false); }}
+                    >
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
                 </>
               )}
 
