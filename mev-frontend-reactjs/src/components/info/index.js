@@ -14,7 +14,7 @@ const Info = () => {
       <div className="custom-container">
         <div className="border border-[#393939] rounded-md flex md:flex-row flex-col md:tems-center overflow-hidden">
           <button className="text-white p-4 tab-btn active rounded border-r border-[#393939]">
-            Mempool Invader
+            Comsats Coin
           </button>
 
         </div>

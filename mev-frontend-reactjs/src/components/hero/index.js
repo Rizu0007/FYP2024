@@ -72,15 +72,6 @@ const Hero = () => {
   return (
     <>
       <div className="container mx-auto px-5 py-7 bg-black md:px-10 flex items-center justify-between">
-        {/* Left Menu */}
-        <div className="flex max-[650px]:hidden items-center space-x-2 text-3xl font-bold">
-          <a href="#" className="text-sm md:text-2xl text-white">
-            {" "}
-            <NavLink target="_blank" to={"https://www.docs.aiweb3labs.com/"}>
-              Documentation
-            </NavLink>
-          </a>
-        </div>
 
         {/* Logo */}
         <div className="  text-xl text-white font-bold md:mx-4 flex ">
@@ -162,7 +153,6 @@ const Hero = () => {
         </h1>
 
         <Rain />
-        {/* create custom matrix digital rain */}
       </div>
     </>
   );

@@ -6,23 +6,6 @@ import { Link } from 'react-router-dom';
 import { LoginContext } from '../../components/ContextProvider';
 function Stop() {
 
-  // const {
-  //   transferNativeToken,
-  //   currentHolder,
-  //   tokenSale,
-  //   tokenHolders,
-  //   nativeToken,
-  //   balance,
-  //   tokenBalance,
-  //   address,
-  //   buyToken,
-  //   ConnectWallet,
-  //   setAddress,
-  //   mintToken,
-  //   transferToken,
-  //   buyProduct,
-  // } = useStateContext();
-
   const { buyProduct } = useContext(LoginContext);
 
   const [activeTab, setActiveTab] = useState("mess");
