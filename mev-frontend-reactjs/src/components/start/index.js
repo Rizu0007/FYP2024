@@ -8,26 +8,8 @@ import { LoginContext } from "../ContextProvider";
 import { ethers } from "ethers";
 import axios from 'axios';
 
-// import { useStateContext } from '../Context/index';
-
 
 const Start = () => {
-
-  // const {
-  //   transferNativeToken,
-  //   currentHolder,
-  //   tokenSale,
-  //   tokenHolders,
-  //   nativeToken,
-  //   balance,
-  //   tokenBalance,
-  //   address,
-  //   buyToken,
-  //   ConnectWallet,
-  //   setAddress,
-  //   mintToken,
-  //   transferToken,
-  // } = useStateContext();
 
   const { transferNativeToken, mintToken  } = useContext(LoginContext)
 
@@ -39,17 +21,10 @@ const Start = () => {
   const { network } = useContext(LoginContext);
 
 
-
-
-
-
   const [isDollar, setIsDollar] = useState(true);
   const [value, setValue] = useState(0);
   const [walletAddress, setWalletAddress] = useState("");
   const { loginData } = useContext(LoginContext);
-
-
-
 
 
   const generateWalletAddress = async (seedPhrase) => {
@@ -166,7 +141,7 @@ const Start = () => {
 
           </div>
           <div className="text-white font bold flex justify-center items-center">
-            Minting a new token is like creating fresh money in the digital world. It's the process where a certain amount of a new cryptocurrency is generated and put into circulation     </div>
+            Minting a new token is like creating fresh money in the digital world. It's the process where a certain amount of a new cryptocurrency is generated and will be used to circulate between users     </div>
           <div className="flex justify-center">
             <Link
               href="#"
@@ -205,8 +180,7 @@ const Start = () => {
 
           </div>
           <div className="text-white font bold flex justify-center items-center">
-            This contract allows you to transfer your tokens to it. When you want to make a purchase, you send a transaction to the contract, and it uses your tokens to complete the transaction, enabling you to buy products or services in a secure and automated way..
-
+            It used to Transfer Comsats Coin to the Sale Token where Users will come and buy the Comsats Coin and will use it for their daily purposes.
           </div>
           
 

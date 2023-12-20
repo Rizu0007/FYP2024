@@ -12,12 +12,6 @@ import shape from "../../assets/images/svg/shape.svg";
 const Features = () => {
   const featureData = [
     {
-      id: 1,
-      title: "Highest Profits",
-      img: iocn1,
-      desc: "2-15% per work cycle",
-    },
-    {
       id: 2,
       title: "No Risk",
       img: icon2,
@@ -28,12 +22,6 @@ const Features = () => {
       title: "Safe",
       img: icon3,
       desc: "All wallet access is under your control",
-    },
-    {
-      id: 4,
-      title: "Ai on Board",
-      img: icon4,
-      desc: "AI monitors, finds, analyses. Specially trainned AI will do what human cannot",
     },
     {
       id: 5,
@@ -70,7 +58,7 @@ const Features = () => {
         </div>
 
         <div className="mt-10">
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6">
+          <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 gap-6">
             {featureData.map((item, index) => (
               <div key={index} className="feature-card rounded-md">
                 <div className="inline-flex items-center py-3 pl-4 pr-4 bg-[#94FEBF] rounded-t-md relative">

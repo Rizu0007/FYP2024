@@ -172,9 +172,7 @@ const BotHero = () => {
         {/* Centered Logo */}
         <div className="text-center flex justify-center items-center">
           <img src={logo} alt="logo" className="mr-3" />
-          <h1 className="text-white text-2xl font-bold uppercase logo">
-            {/* Mev Bot */}
-          </h1>
+          
         </div>
 
         {/* Right Options */}
@@ -207,26 +205,6 @@ const BotHero = () => {
 
 
             </div>
-            {/* <Link   to='/profile' className="icon-holder p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded">
-      <svg class="h-6 w-6 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
-                  </Link> */}
-            {/* <Link
-              className="icon-holder p-2 px-3 md:bg-black border-2 border-[#589B74] rounded"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 28.612 28.607"
-              >
-                <path
-                  id="settings"
-                  d="M27.933,11.047l-2.2-.478a11.966,11.966,0,0,0-.708-1.706l1.219-1.894A.855.855,0,0,0,26.132,5.9L22.7,2.478a.855.855,0,0,0-1.067-.114L19.744,3.58a11.967,11.967,0,0,0-1.7-.705l-.479-2.2A.855.855,0,0,0,16.726,0H11.884a.855.855,0,0,0-.835.673l-.48,2.2a11.966,11.966,0,0,0-1.706.708L6.97,2.366a.855.855,0,0,0-1.064.116L2.478,5.908a.855.855,0,0,0-.114,1.064L3.58,8.866a11.966,11.966,0,0,0-.706,1.7l-2.2.478A.855.855,0,0,0,0,11.884v4.842a.855.855,0,0,0,.673.835l2.2.478a11.966,11.966,0,0,0,.708,1.706L2.364,21.639a.855.855,0,0,0,.114,1.067l3.43,3.427a.855.855,0,0,0,1.064.114l1.894-1.216a11.965,11.965,0,0,0,1.706.708l.478,2.2a.855.855,0,0,0,.835.67h4.842a.855.855,0,0,0,.835-.673l.478-2.2a11.967,11.967,0,0,0,1.706-.708l1.894,1.216a.855.855,0,0,0,1.067-.114L26.133,22.7a.855.855,0,0,0,.116-1.067l-1.216-1.894a11.966,11.966,0,0,0,.708-1.706l2.2-.478a.855.855,0,0,0,.673-.835V11.884a.855.855,0,0,0-.674-.835Zm-8.5,3.257A5.129,5.129,0,1,1,14.3,9.174,5.129,5.129,0,0,1,19.432,14.3Zm0,0"
-                  fill="#fff"
-                />
-              </svg>
-            </Link> */}
-            {/* Modal start */}
 
             <Link
               to="/auth/Pinverf"
@@ -263,26 +241,6 @@ const BotHero = () => {
 
 
                 </div>
-                {/* <Link   to='/profile' className="icon-holder p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded">
-      <svg class="h-6 w-6 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="7" r="4" />  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
-                  </Link> */}
-                {/* <Link
-                  className="icon-holder p-2 px-3 bg-black border-2 border-[#589B74] rounded"
-                  onClick={openModal}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    viewBox="0 0 28.612 28.607"
-                  >
-                    <path
-                      id="settings"
-                      d="M27.933,11.047l-2.2-.478a11.966,11.966,0,0,0-.708-1.706l1.219-1.894A.855.855,0,0,0,26.132,5.9L22.7,2.478a.855.855,0,0,0-1.067-.114L19.744,3.58a11.967,11.967,0,0,0-1.7-.705l-.479-2.2A.855.855,0,0,0,16.726,0H11.884a.855.855,0,0,0-.835.673l-.48,2.2a11.966,11.966,0,0,0-1.706.708L6.97,2.366a.855.855,0,0,0-1.064.116L2.478,5.908a.855.855,0,0,0-.114,1.064L3.58,8.866a11.966,11.966,0,0,0-.706,1.7l-2.2.478A.855.855,0,0,0,0,11.884v4.842a.855.855,0,0,0,.673.835l2.2.478a11.966,11.966,0,0,0,.708,1.706L2.364,21.639a.855.855,0,0,0,.114,1.067l3.43,3.427a.855.855,0,0,0,1.064.114l1.894-1.216a11.965,11.965,0,0,0,1.706.708l.478,2.2a.855.855,0,0,0,.835.67h4.842a.855.855,0,0,0,.835-.673l.478-2.2a11.967,11.967,0,0,0,1.706-.708l1.894,1.216a.855.855,0,0,0,1.067-.114L26.133,22.7a.855.855,0,0,0,.116-1.067l-1.216-1.894a11.966,11.966,0,0,0,.708-1.706l2.2-.478a.855.855,0,0,0,.673-.835V11.884a.855.855,0,0,0-.674-.835Zm-8.5,3.257A5.129,5.129,0,1,1,14.3,9.174,5.129,5.129,0,0,1,19.432,14.3Zm0,0"
-                      fill="#fff"
-                    />
-                  </svg>
-                </Link> */}
 
                 <Link
                   to="/auth/Pinverf"
@@ -300,11 +258,7 @@ const BotHero = () => {
 Comsats Coin        </h1>
 
         <Rain />
-        {/* create custom matrix digital rain */}
       </div>
-      {/* matrix */}
-
-      {/* settings popup */}
     </>
   );
 };
