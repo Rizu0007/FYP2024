@@ -16,7 +16,7 @@ import bin from "../../assets/images/currency/okkk.png";
 import Web3 from "web3";
 import { LoginContext } from "../ContextProvider";
 import { BigNumber, ethers } from "ethers";
-import withdraw from "../../pages/withdraw/index";
+import withdraw from "../../pages/ComsatCoin/index";
 
 const BotHero = () => {
 
@@ -297,8 +297,7 @@ const BotHero = () => {
       )}
       <div className="h-[200px] w-full relative">
         <h1 className="text-center text-[#00FFA2] uppercase md:text-[65px] text-[50px] spacing font-bold bg-transparent absolute poppins left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] lh-1">
-          {selectedNetworkName}
-        </h1>
+Comsats Coin        </h1>
 
         <Rain />
         {/* create custom matrix digital rain */}
