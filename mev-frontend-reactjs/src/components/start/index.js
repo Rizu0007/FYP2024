@@ -107,8 +107,7 @@ const Start = () => {
     size: '',
     location: '',
     price: '',
-    categoryMess: '',  // new field for Category Mess
-  categoryEshop: '', 
+    category:""
   });
 
 
@@ -116,11 +115,11 @@ const Start = () => {
   const handleChange = (e) => {
     if (e.target.name === 'image') {
       setProductData({ ...productData, image: e.target.files[0] });
+    } else if (e.target.name === 'selectedCategory') {
+      setProductData({ ...productData, category: e.target.value });
     } else {
-
-
       setProductData({ ...productData, [e.target.name]: e.target.value });
-    };
+    }
   };
   const handleChangeSize = (e) => {
     setProductData({ ...productData, size: e.target.value });
@@ -303,7 +302,7 @@ const Start = () => {
           id="selectedCategory"
           name="selectedCategory"
           class="bg-black text-white border-2 border-[#00FFA2] text-sm sm:text-base pl-10 pr-4 rounded-lg w-full py-4 focus:outline-none"
-          value={productData.selectedCategory}
+          value={productData.category}
           onChange={handleChange}
         >
           <option value="">Choose a Category</option>
@@ -398,10 +397,10 @@ const Start = () => {
 
                             class=" bg-black text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg  w-full py-4 focus:outline-none text-white border-2 border-[#00FFA2]"
                           >
-                            <option value="small">PizzA</option>
-                            <option value="large">BURGER</option>
-                            <option value="extraLarge">Samosa</option>
-                            <option value="extraLarge">COKE</option>
+                            <option value="PizzA">PizzA</option>
+                            <option value="BURGER">BURGER</option>
+                            <option value="Samosa">Samosa</option>
+                            <option value="COKE">COKE</option>
 
 
                           </select>

@@ -154,7 +154,7 @@ function Stop() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10  placeholder-shown:">
-                {products.map(product => (
+              {products.filter(product => product.category === 'mess').map(product => (
                   <div key={product._id} className="rounded overflow-hidden shadow-lg flex flex-col border-2 border-[#00FFA2]">
                     <div className="relative">
                       <img className="w-full" src={product.image} alt={product.name} />
