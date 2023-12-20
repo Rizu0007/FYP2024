@@ -9,7 +9,7 @@ import "../../assets/css/global.css";
 import { LoginContext } from "../../components/ContextProvider";
 
 const Withdraw = ({ progress }) => {
-  
+
   const { transferToken, buyToken } = useContext(LoginContext);
 
   const [amount, setAmount] = useState("");
@@ -19,15 +19,9 @@ const Withdraw = ({ progress }) => {
   // //////////////
 
 
-
-
-
   // Function to convert Ethereum to USD
   const [ethValue, setEthValue] = useState("");
   const [usdValue, setUsdValue] = useState(null);
-
-
-
 
 
   const [tokenToBuy, setTokenToBuy] = useState()
@@ -63,7 +57,8 @@ const Withdraw = ({ progress }) => {
                 Token Sale
               </h5>
               <p className="font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                We Provide a platform where anyone buy comsats coin . Users can use Comsats Coin to buy anything in the campus. Don’ts: The system will not allow administrators to edit transaction.
+                We Provide a platform where anyone buy comsats coin . Users can use Comsats Coin to buy anything in the campus.
+                Don’ts: The system will not allow administrators to edit transaction.
               </p>
               <div class="flex items-center justify-center p-3 space-y-0.5	 mb-4 text-sm text-red-800 rounded-lg  dark:text-red-400 " role="alert">
                 <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -71,7 +66,7 @@ const Withdraw = ({ progress }) => {
                 </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                  <span class="font-medium">seedPhrase:</span>  Once you generate the seed phrase, save it securely to recover your wallet in the future.
+                  <span class="font-medium">Warning:</span>  You must have ETH Coins in your Wallet to Buy Comsats Coin
 
                 </div>
               </div>
@@ -108,10 +103,13 @@ const Withdraw = ({ progress }) => {
           <div className="bg-black sh700adow-md w-70 h-30 rounded-xl bg-clip-border border-4 border-[#00FFA2]">
             <div className="p-6">
               <h5 className=" flex items-center justify-center font-bold text-3xl mb-2 font-sans  antialiased underline  text-[#00FFA2] leading-snug tracking-normal text-blue-gray-900">
-                Transfer Token
+                Transfer Coins
               </h5>
               <p className="font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                We Provide a platform where anyone buy comsats coin . Users can use Comsats Coin to buy anything in the campus. Don’ts: The system will not allow administrators to edit transaction.
+                The Transfer feature of Comsats Coin empowers you with the freedom to send your digital currency to
+                anyone you choose. Whether it's facilitating transactions or sharing your crypto wealth,
+                this capability allows seamless and secure transfers, giving you full control over your Comsats
+                Coin holdings.
               </p>
               <div class="flex items-center justify-center p-3 space-y-0.5	 mb-4 text-sm text-red-800 rounded-lg  dark:text-red-400 " role="alert">
                 <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -119,7 +117,7 @@ const Withdraw = ({ progress }) => {
                 </svg>
                 <span class="sr-only">Info</span>
                 <div>
-                  <span class="font-medium">seedPhrase:</span>  Once you generate the seed phrase, save it securely to recover your wallet in the future.
+                  <span class="font-medium">Warning:</span>  You must check the wallet Address is valid and you have Comsats Coin in Your Wallet to Transfer to Someone.
 
                 </div>
               </div>

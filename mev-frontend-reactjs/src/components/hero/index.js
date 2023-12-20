@@ -85,7 +85,6 @@ const Hero = () => {
         {/* Logo */}
         <div className="  text-xl text-white font-bold md:mx-4 flex ">
           <img src={logo} alt="logo" className="mr-3 md:w-auto w-[20px]" />
-          {/* <p className="md:mt-4">MEV BOT</p> */}
         </div>
 
         {/* Right Menu */}
@@ -159,7 +158,7 @@ const Hero = () => {
       )}
       <div div className="h-[200px] w-full relative ">
         <h1 className="text-center text-[#00FFA2] uppercase md:text-[65px] max-[918px]:w-full text-[36px] spacing font-bold bg-transparent absolute poppins left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] lh-1">
-          AI WEB3 LAB Mev Bot
+          Comsats Coin
         </h1>
 
         <Rain />

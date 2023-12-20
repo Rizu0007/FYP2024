@@ -22,23 +22,12 @@ const Footer = () => {
             <div className="text-center flex justify-center items-center">
               <img src={logo} alt="logo" className="mr-3" />
               <h1 className="text-white text-2xl font-bold uppercase logo">
-                Mev Bot
+                Comsats Coin
               </h1>
-            </div>
-            <div className="text-center flex md:justify-end justify-center items-center ">
-              <div className="flex rounded items-center gap-2">
-                <Link target="_blank" to="https://twitter.com/aiweb3labs" className="text-white p-1 bg-[#0E1F17] border-2 border-[#589B74] rounded w-[35px] h-[35px] flex justify-center items-center">
-                  <FaTwitter />
-                </Link>
-                <Link target="_blank" to="https://t.me/mevbotadmin" className="text-white p-1 bg-[#0E1F17] border-2 border-[#589B74] rounded w-[35px] h-[35px] flex justify-center items-center">
-                  <FaTelegram />
-                </Link>
-
-              </div>
             </div>
           </div>
 
-          <p className="text-lg text-white mt-4 text-center">AIWeb3Labs © Copyright 2023</p>
+          <p className="text-lg text-white mt-4 text-center">ComsatsCoin © Copyright 2023</p>
         </section>
       </div>
     </div>
