@@ -10,8 +10,11 @@ import { FaEthereum, FaTimes, FaBars } from "react-icons/fa";
 import bin from "../../assets/images/currency/okkk.png";
 import { LoginContext } from "../ContextProvider";
 
+<<<<<<< HEAD
 import { BigNumber, ethers } from "ethers";
 import withdraw from "../../pages/ComsatCoin/index";
+=======
+>>>>>>> 7fb2033f1eb0560ece3e7ec4fe50f1860ebf94a5
 
 const BotHero = () => {
 

@@ -7,15 +7,6 @@ function Header() {
   return (
     <>
       <div className="bg-black-900 p-6 flex justify-evenly items-center">
-        <div className="flex  items-center">
-          <Link
-            className="text-xl font-bold"
-            target="_blank"
-            to={"https://www.docs.aiweb3labs.com/"}
-          >
-            Documentation
-          </Link>
-        </div>
 
         <div className="text-center flex justify-center items-center">
           <img src={logo} alt="logo" className="mr-3" />
@@ -28,11 +19,10 @@ function Header() {
       </div>
       <div div className="h-[200px] w-full relative">
         <h1 className="text-center text-[#00FFA2] uppercase md:text-[65px] text-[50px] spacing font-bold bg-transparent absolute poppins left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] lh-1">
-          Ai WEB3 LAB Mev Bot
+          Comsats Coin
         </h1>
 
         <Rain />
-        {/* create custom matrix digital rain */}
       </div>
     </>
   );
