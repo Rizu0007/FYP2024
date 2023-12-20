@@ -6,11 +6,7 @@ import { Link } from 'react-router-dom';
 import { LoginContext } from '../../components/ContextProvider';
 function Stop() {
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 7fb2033f1eb0560ece3e7ec4fe50f1860ebf94a5
   const { buyProduct } = useContext(LoginContext);
 
   const [activeTab, setActiveTab] = useState("mess");
