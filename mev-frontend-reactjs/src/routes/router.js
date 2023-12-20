@@ -19,8 +19,6 @@ import Create from "../components/Create";
 import Password from "../components/password";
 import WalletHome from "../components/UserWallet";
 import PinVerification from "../components/PinVerification";
-import Licence from "../components/licence";
-import FAQList from "../components/Faq";
 import UserProfile from "../components/security";
 import General from "../components/Genenral";
 const router = createBrowserRouter([
@@ -141,18 +139,12 @@ const router = createBrowserRouter([
         path: "auth/Pinverf",
         element: <PinVerification />,
       },
-      {
-        path: "/bot/Faq",
-        element: <FAQList/>,
-      },
+    
       {
         path: "/bot/profile",
         element: <Profile />,
       },
-      {
-        path:'/bot/license',
-        element:<Licence/>
-        },
+    
         {
           path:'/bot/general',
           element:<General/>

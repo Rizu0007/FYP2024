@@ -6,22 +6,7 @@ import { Link } from 'react-router-dom';
 import { LoginContext } from '../../components/ContextProvider';
 function Stop() {
 
-  // const {
-  //   transferNativeToken,
-  //   currentHolder,
-  //   tokenSale,
-  //   tokenHolders,
-  //   nativeToken,
-  //   balance,
-  //   tokenBalance,
-  //   address,
-  //   buyToken,
-  //   ConnectWallet,
-  //   setAddress,
-  //   mintToken,
-  //   transferToken,
-  //   buyProduct,
-  // } = useStateContext();
+
 
   const { buyProduct } = useContext(LoginContext);
 
@@ -55,24 +40,26 @@ function Stop() {
     fetchProducts();
   }, []);
 
-  const generateInvoice = (product) => {
-    const invoice = {
-      productName: product.name,
-      price: product.price
-      // add more details as necessary
-    };
-
-    setCurrentInvoice(invoice);
-    // Show the invoice modal (or handle the invoice display differently)
-  };
-
-  useEffect(() => {
-    if (currentInvoice) {
-      alert(`Invoice\nProduct: ${currentInvoice.productName}\nPrice: ${currentInvoice.price}`);
-      // After displaying the invoice, clear the current invoice state
-      setCurrentInvoice(null);
+  
+  const buyProduct1 = async (product) => {
+    try {
+      // Logic to handle the purchase (e.g., payment processing)
+      // ...
+  
+      // If purchase is successful, generate invoice
+      const invoice = {
+        productName: product.name,
+        price: product.price,
+        purchaseDate: new Date().toLocaleDateString(),
+        // Add other necessary details
+      };
+  
+      setCurrentInvoice(invoice);
+    } catch (error) {
+      console.error('Error during purchase:', error);
     }
-  }, [currentInvoice]);
+  };
+  
 
   return (
     <>
@@ -416,23 +403,7 @@ function Stop() {
 
             {activeTab === 'profile' && (
               <div>
-                {currentInvoice ? (
-                  <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
-                    <div className="bg-white p-5 rounded-lg shadow-lg">
-                      <h2 className="text-2xl font-bold">Invoice</h2>
-                      <p><strong>Product:</strong> {currentInvoice.productName}</p>
-                      <p><strong>Price:</strong> {currentInvoice.price}</p>
-                      <button
-                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                        onClick={() => setCurrentInvoice(null)}
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div>No Invoice Generated</div>
-                )}
+                jj
               </div>
             )}
 

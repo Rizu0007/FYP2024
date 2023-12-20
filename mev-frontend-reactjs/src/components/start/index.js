@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import "../../assets/css/global.css";
 
-import BotActivity from "../bot-activity";
 import { LoginContext } from "../ContextProvider";
 import { ethers } from "ethers";
 import axios from 'axios';

@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import Manage from "../components/manage";
-import Activity from "../components/activity";
-import RefferCode from "../components/reffer-code";
+
 import BotHero from "../components/bot-hero";
 import Footer from "../components/footer";
 import { API } from "../api/api";
-import LicenseExpiredPop from "../components/LicenseExpiredPopup/licenseExpiredPop.js";
-import { storeBotActivities } from "../redux/UserBotActivityRedux";
 import { useDispatch } from "react-redux";
-import { storeActivities } from "../redux/UserActivityRedux";
 import shape from "../assets/images/svg/shape-gray.svg";
 const BotLayout = () => {
   const [showPopUp, setShowPopUp] = useState(false);

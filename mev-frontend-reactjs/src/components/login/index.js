@@ -78,7 +78,7 @@ function Login() {
       if (res.status === 201) {
         localStorage.setItem("usersdatatoken", res.result.token);
         setTimeout(() => {
-          history("/auth/Pinverf");
+          history("/bot/deposit");
         }, 1000);
         setInpval({ ...inpval, fname: "", password: "" });
         toast.success("Login successfully!", {
