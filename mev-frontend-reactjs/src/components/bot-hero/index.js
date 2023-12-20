@@ -9,6 +9,11 @@ import { FaHome, FaLock } from "react-icons/fa";
 import { FaEthereum, FaTimes, FaBars } from "react-icons/fa";
 import bin from "../../assets/images/currency/okkk.png";
 import { LoginContext } from "../ContextProvider";
+<<<<<<< HEAD
+=======
+import { BigNumber, ethers } from "ethers";
+import withdraw from "../../pages/ComsatCoin/index";
+>>>>>>> 7632236906abd0fe97f4ae19be8245cb8304f2d4
 
 const BotHero = () => {
 
@@ -231,8 +236,7 @@ const BotHero = () => {
       )}
       <div className="h-[200px] w-full relative">
         <h1 className="text-center text-[#00FFA2] uppercase md:text-[65px] text-[50px] spacing font-bold bg-transparent absolute poppins left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] lh-1">
-          {selectedNetworkName}
-        </h1>
+Comsats Coin        </h1>
 
         <Rain />
       </div>

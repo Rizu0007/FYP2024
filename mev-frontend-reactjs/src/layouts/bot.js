@@ -3,8 +3,6 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import Manage from "../components/manage";
 import Activity from "../components/activity";
 import RefferCode from "../components/reffer-code";
-import Subscription from "../components/subscription";
-import BotActivity from "../components/bot-activity";
 import BotHero from "../components/bot-hero";
 import Footer from "../components/footer";
 import { API } from "../api/api";
@@ -37,7 +35,7 @@ const BotLayout = () => {
           />
         </svg>
       ),
-      title: "DEPOSIT",
+      title: "Wallet Profile",
       link: "/bot/deposit",
     },
     {
@@ -57,7 +55,7 @@ const BotLayout = () => {
           />
         </svg>
       ),
-      title: "WITHDRAW",
+      title: "COMSATS COIN",
       link: "/bot/withdraw",
     },
     {
@@ -78,7 +76,7 @@ const BotLayout = () => {
           />
         </svg>
       ),
-      title: "START BOT",
+      title: "Admin",
       link: "/bot",
     },
     {
@@ -99,15 +97,10 @@ const BotLayout = () => {
           />
         </svg>
       ),
-      title: "HISTORY",
+      title: "Comsats Shop",
       link: "/bot/stop",
     },
-  ];
-
-  // const handleActivity = async () => {
-  //   const network = localStorage.getItem("network");
-  //   if (network === "arb") {
-  //     body.network = "arbitrum";
+  ];  
   //   } else if (network === "eth") {
   //     body.network = "ethereum";
   //   }
