@@ -139,9 +139,9 @@ const LoginDataProvider = ({ children }) => {
   }
 
 
-  useEffect(() => {
-    fetchInitialData()
-  }, [])
+  // useEffect(() => {
+  //   fetchInitialData()
+  // }, [])
 
   const buyToken = async (nToken) => {
     try {
@@ -264,6 +264,7 @@ const LoginDataProvider = ({ children }) => {
       mintToken,
       transferToken,
       buyProduct,
+      fetchInitialData
     }}>
       {children}
     </LoginContext.Provider>

@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import arb from '../../assets/images/currency/Arbitrum.png'
 import eth from '../../assets/images/eth.png'
 import bin from '../../assets/images/currency/okkk.png'
 
+import { LoginContext } from "../ContextProvider";
 
 import Modal from "../model";
 function Login() {
+
+
   const [passShow, setPassShow] = useState(false);
 
   const [inpval, setInpval] = useState({
@@ -89,6 +92,7 @@ function Login() {
         setInpval({ ...inpval, fname: "", password: "" });
       }
     }
+
   };
 
   return (

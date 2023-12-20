@@ -1,20 +1,29 @@
-import React, { useState, useEffect  , useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import PinInput from "react-pin-input";
 import { ToastContainer, toast } from "react-toastify";
 import { LoginContext } from "../ContextProvider";
+
+
 const PinVerification = () => {
+  const { fetchInitialData } = useContext(LoginContext);
+
   const [pin, setPin] = useState("");
   const [seedPhrase, setSeedPhrase] = useState("");
   const [local, setLocal] = useState("");
   const [verificationStatus, setVerificationStatus] = useState(""); // Initialize verification status
   const navigate = useNavigate();
   const { setRecoveredSeedPhrase } = useContext(LoginContext);
+
   useEffect(() => {
     let token = localStorage.getItem("usersdatatoken");
     setLocal(token);
   }, []);
+
+  useEffect(() => {
+    fetchInitialData()
+  },[])
 
   const handleRetrieveSeedPhrase = async () => {
     setVerificationStatus(""); // Reset verification status before starting the process
@@ -56,6 +65,7 @@ const PinVerification = () => {
       // Handle network errors or any other unexpected issues
       setVerificationStatus("An error occurred. Please try again.");
     }
+
   };
 
   return (
@@ -63,7 +73,7 @@ const PinVerification = () => {
       <div className="flex items-center justify-center md:p-28 p-4">
         <div className="bg-black border-4 text-center border-[#00FFA2] shadow-md w-fit rounded-xl bg-clip-border p-6">
           <h5 className="text-center font-bold text-3xl mb-2 text-[#00FFA2] underline text-blue-gray-900">
-            MEV-BOT
+            Comsats Coin
           </h5>
 
           <p className="text-base  font-light leading-relaxed text-inherit mt-4 py-5">
@@ -97,11 +107,10 @@ const PinVerification = () => {
 
           <div className="mt-6 flex justify-center">
             <button
-              className={`bg-black border-2 py-3 px-2 border-[#00FFA2] text-white  focus:outline-none md:text-sm md:py-3 md:px-4 ${
-                !pin || verificationStatus === "PIN code verified successfully"
+              className={`bg-black border-2 py-3 px-2 border-[#00FFA2] text-white  focus:outline-none md:text-sm md:py-3 md:px-4 ${!pin || verificationStatus === "PIN code verified successfully"
                   ? "opacity-50 cursor-not-allowed"
                   : ""
-              }`}
+                }`}
               onClick={handleRetrieveSeedPhrase}
             >
               Unlock

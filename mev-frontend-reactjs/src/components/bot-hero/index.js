@@ -2,40 +2,16 @@ import React, { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Rain from "../rain";
 // import { Dropdown } from "antd";
-import SettingsModal from "../settingsModal";
 import { useEffect } from "react";
 import logo from "../../assets/images/eth.png";
 
 import { FaHome, FaLock } from "react-icons/fa";
-import { API } from "../../api/api";
-import { useDispatch, useSelector } from "react-redux";
-import { storeBalance } from "../../redux/balanceRedux";
 import { FaEthereum, FaTimes, FaBars } from "react-icons/fa";
-import arb from "../../assets/images/svg/arb.svg";
 import bin from "../../assets/images/currency/okkk.png";
-import Web3 from "web3";
 import { LoginContext } from "../ContextProvider";
-import { BigNumber, ethers } from "ethers";
-import withdraw from "../../pages/withdraw/index";
 
 const BotHero = () => {
 
-  // const {
-  //   transferNativeToken,
-  //   currentHolder,
-  //   tokenSale,
-  //   tokenHolders,
-  //   nativeToken,
-  //   balance,
-  //   tokenBalance,
-  //   address,
-  //   buyToken,
-  //   ConnectWallet,
-  //   setAddress,
-  //   mintToken,
-  //   transferToken,
-  //   buyProduct,
-  // } = useStateContext();
 
   const { tokenBalance, balance, address } = useContext(LoginContext);
 
