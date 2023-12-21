@@ -10,8 +10,10 @@ import { FaEthereum, FaTimes, FaBars } from "react-icons/fa";
 import bin from "../../assets/images/currency/okkk.png";
 import { LoginContext } from "../ContextProvider";
 
-import { BigNumber, ethers } from "ethers";
+import { ethers } from "ethers";
 import withdraw from "../../pages/ComsatCoin/index";
+
+import BigNumber from 'bignumber.js';
 
 const BotHero = () => {
 
@@ -20,6 +22,14 @@ const BotHero = () => {
 
   // let token = BigInt(tokenBalance) / 1000000000000000000n;
   // let tokenBal = Number(token)
+
+  const weiToEther = (wei) => {
+    const ether = new BigNumber(wei).dividedBy('1e18');
+    return ether.toNumber();
+  };
+
+  const tokenBal = weiToEther(tokenBalance)
+
 
   // nav toggle
 
@@ -47,7 +57,7 @@ const BotHero = () => {
   const { loginData } = useContext(LoginContext);
   const [isDataSaving, setIsDataSaving] = useState(false);
 
- 
+
 
   const openNetworkForm = () => {
     setShowNetwork(true);
@@ -57,11 +67,11 @@ const BotHero = () => {
     setShowNetwork(false);
   };
 
- 
 
- 
 
- 
+
+
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -141,7 +151,7 @@ const BotHero = () => {
                   onClick={tokenBalance}
                 >
                   <span className="text-xl font-bold">
-                    {/* {tokenBal} */}
+                    {tokenBal}
                   </span>
                 </button>
               </div>
@@ -151,7 +161,7 @@ const BotHero = () => {
         {/* Centered Logo */}
         <div className="text-center flex justify-center items-center">
           <img src={logo} alt="logo" className="mr-3" />
-          
+
         </div>
 
         {/* Right Options */}
@@ -180,7 +190,8 @@ const BotHero = () => {
                 className="icon-holder ml-auto start-4 p-2 px-3 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
               >
                 {" "}
-                {address}              </button>
+                {address}
+              </button>
 
 
             </div>
@@ -221,12 +232,12 @@ const BotHero = () => {
 
                 </div>
 
-                <Link
+                {/* <Link
                   to="/auth/Pinverf"
                   className="icon-holder ml-auto start-4 p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
                 >
                   <FaLock className="text-2xl" />
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -234,7 +245,7 @@ const BotHero = () => {
       )}
       <div className="h-[200px] w-full relative">
         <h1 className="text-center text-[#00FFA2] uppercase md:text-[65px] text-[50px] spacing font-bold bg-transparent absolute poppins left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] lh-1">
-Comsats Coin        </h1>
+          Comsats Coin        </h1>
 
         <Rain />
       </div>
