@@ -373,8 +373,8 @@ const Start = () => {
                             <option value="PizzA">Pizza</option>
                             <option value="BURGER">BURGER</option>
                             <option value="Samosa">Samosa</option>
-                            <option value="COKE">COKE</option>
-                            <option value="PizzA">EShop</option>
+                            <option value="Drinks">Drinks</option>
+                            <option value="Eshop">E-Shop</option>
 
 
                           </select>

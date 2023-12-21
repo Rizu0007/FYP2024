@@ -13,12 +13,13 @@ import { LoginContext } from "../ContextProvider";
 import { ethers } from "ethers";
 import withdraw from "../../pages/ComsatCoin/index";
 
+
 import BigNumber from 'bignumber.js';
 
 const BotHero = () => {
 
 
-  const { tokenBalance, balance, address } = useContext(LoginContext);
+  const { tokenBalance, balance, address , fetchInitialData } = useContext(LoginContext);
 
   // let token = BigInt(tokenBalance) / 1000000000000000000n;
   // let tokenBal = Number(token)
@@ -114,10 +115,8 @@ const BotHero = () => {
 
 
   useEffect(() => {
-    if (walletAddress && ethBalance && bnbBalance && arbBalance) {
-      saveWalletData();
-    }
-  }, [ethBalance, bnbBalance, arbBalance, walletAddress]);
+    fetchInitialData()
+  }, [fetchInitialData]);
 
   // ... your component's JSX with balance displays ...
 
@@ -197,10 +196,9 @@ const BotHero = () => {
             </div>
 
             <Link
-              to="/auth/Pinverf"
               className="icon-holder ml-auto start-4 p-3 px-4 md:bg-[#0E1F17] border-2 border-[#589B74] rounded"
             >
-              <FaLock className="text-2xl" />
+          <button onClick={() => fetchInitialData()} >Connect</button>
             </Link>
           </div>
         </div>
