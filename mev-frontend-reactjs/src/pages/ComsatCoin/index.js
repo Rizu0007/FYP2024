@@ -5,6 +5,8 @@ import shape from "../../assets/images/svg/shape-gray.svg";
 import { API } from "../../api/api";
 import { Alert } from "antd";
 import "../../assets/css/global.css";
+import { useNavigate, NavLink } from "react-router-dom";
+import PinInput from "react-pin-input";
 
 import { LoginContext } from "../../components/ContextProvider";
 

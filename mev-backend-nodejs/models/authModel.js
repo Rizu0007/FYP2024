@@ -63,6 +63,9 @@ userSchema.pre("save", async function (next) {
     this.password = await bcryptjs.hash(this.password, 12);
     this.cpassword = await bcryptjs.hash(this.cpassword, 12);
   }
+  if (this.isModified("pin")) {
+    this.pin = await bcryptjs.hash(this.pin, 12);
+  }
  
   next();
 });

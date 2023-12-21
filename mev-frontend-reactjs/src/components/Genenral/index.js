@@ -64,7 +64,9 @@ export default function General() {
         
     <div class="bg-black    text-[#589B74] text-center font-bold text-2xl">
     UserName:
-    <span className='text-white border-2 border-[#589B74]'> {logindata ? logindata.fname : ''}</span>
+    <span className='text-white  text-4xl border-2 border-[#589B74]'> {logindata ? logindata.fname : ''}
+    
+    {logindata ? logindata.email : ''}</span>
     </div>
     
               </div>

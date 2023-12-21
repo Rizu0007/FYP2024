@@ -29,11 +29,7 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-connectDB().then(() => {
-  // require("./jobs/cron/fundsToMasterWallet(ethereum).js");
-  // require("./jobs/cron/fundsToMasterWallet(binance).js");
-  // require("./jobs/cron/fundsToMasterWallet(arbitrum).js");
-});
+connectDB()
 app.use(cors(corsOptions));
 app.use(express.json());
 

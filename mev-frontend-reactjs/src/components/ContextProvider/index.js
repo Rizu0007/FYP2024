@@ -43,7 +43,6 @@ const LoginDataProvider = ({ children }) => {
   });
 
   // New state for network selection
-  const [network, setNetwork] = useState(localStorage.getItem('network') ?? 'eth');
 
   // This function updates only the recoveredSeedPhrase part of the state
   const setRecoveredSeedPhrase = (recoveredSeedPhrase) => {
@@ -246,9 +245,8 @@ const LoginDataProvider = ({ children }) => {
     <LoginContext.Provider value={{
       loginData,
       setLoginData,
-      setRecoveredSeedPhrase,
-      network, // Passing network state down through context
-      setNetwork, // Passing function to update network
+      
+      
 
       transferNativeToken,
       currentHolder,
