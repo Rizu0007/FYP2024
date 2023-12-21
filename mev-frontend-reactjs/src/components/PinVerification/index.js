@@ -6,57 +6,48 @@ import { ToastContainer, toast } from "react-toastify";
 import { LoginContext } from "../ContextProvider";
 const PinVerification = () => {
   const [pin, setPin] = useState("");
-  const [seedPhrase, setSeedPhrase] = useState("");
   const [local, setLocal] = useState("");
   const [verificationStatus, setVerificationStatus] = useState(""); // Initialize verification status
   const navigate = useNavigate();
-  const { setRecoveredSeedPhrase } = useContext(LoginContext);
+  // Removed useContext related to seedPhrase since it's no longer needed
+
   useEffect(() => {
     let token = localStorage.getItem("usersdatatoken");
     setLocal(token);
   }, []);
 
-  const handleRetrieveSeedPhrase = async () => {
+  const handlePinVerification = async () => {
+    console.log("Verifying PIN..."); // To check if the function is triggered
     setVerificationStatus(""); // Reset verification status before starting the process
-
+  
     try {
-      const pinVerificationResponse = await axios.post(
-        "/verify-pin-code",
-        { pin },
-        { headers: { authorization: local } }
-      );
-
-      if (pinVerificationResponse.status === 201) {
-        const seedPhraseResponse = await axios.get("/retrieve-seed-phrase", {
-          headers: { authorization: local },
+        console.log("Sending PIN for verification:", pin); // Check the pin being sent
+        
+        const response = await fetch("/verify-pin-code", { // Adjust the URL as per your server
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${local}` // Adjust as per your token format
+            },
+            body: JSON.stringify({ pin })
         });
-
-        if (seedPhraseResponse.status === 200) {
-          const retrievedSeedPhrase = seedPhraseResponse.data.data.seedPhrase;
-          setSeedPhrase(retrievedSeedPhrase);
-          setRecoveredSeedPhrase(retrievedSeedPhrase);
-          // Send the seedPhrase as a prop to walletHome and navigate
-          navigate("/bot/deposit")
-
-
-          // Set a success message in the verification status
-          setVerificationStatus("PIN code verified successfully");
+  
+        const pinVerificationResponse = await response.json();
+        console.log("Response received:", pinVerificationResponse); // Check the response received
+  
+        if (response.ok && pinVerificationResponse.status === 201) {
+            navigate("/next-route"); // Navigate to the next page or handle success
         } else {
-          // Handle other unexpected statuses for seed phrase retrieval
-          setVerificationStatus("Error retrieving seed phrase");
+            setVerificationStatus(pinVerificationResponse.message || "PIN verification failed. Please try again.");
         }
-      } else if (pinVerificationResponse.status === 401) {
-        // The PIN was invalid
-        setVerificationStatus("Invalid PIN code");
-      } else {
-        // Handle other unexpected statuses for PIN verification
-        setVerificationStatus("Error verifying PIN code");
-      }
     } catch (error) {
-      // Handle network errors or any other unexpected issues
-      setVerificationStatus("An error occurred. Please try again.");
+        console.error("Error during PIN verification:", error);
+        setVerificationStatus("An error occurred. Please try again.");
     }
   };
+  
+
+
 
   return (
     <div>
@@ -96,16 +87,16 @@ const PinVerification = () => {
           </div>
 
           <div className="mt-6 flex justify-center">
-            <button
-              className={`bg-black border-2 py-3 px-2 border-[#00FFA2] text-white  focus:outline-none md:text-sm md:py-3 md:px-4 ${
-                !pin || verificationStatus === "PIN code verified successfully"
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
-              onClick={handleRetrieveSeedPhrase}
-            >
-              Unlock
-            </button>
+          <button
+          className={`bg-black border-2 py-3 px-2 border-[#00FFA2] text-white  focus:outline-none md:text-sm md:py-3 md:px-4 ${
+            !pin || verificationStatus === "PIN code verified successfully"
+              ? "opacity-50 cursor-not-allowed"
+              : ""
+          }`}
+          onClick={handlePinVerification}
+        >
+          Unlock
+        </button>
           </div>
           {/* Display verification status here */}
           {verificationStatus && (

@@ -4,7 +4,7 @@ const connectDB = async () => {
   try {
     const connect = await mongoose.connect(process.env.MONGOURI, {
       useNewUrlParser: true,
-      // useUnifiedTopology: true,
+      useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
     });
 

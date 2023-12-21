@@ -7,8 +7,10 @@ import bin from '../../assets/images/currency/okkk.png'
 
 import { LoginContext } from "../ContextProvider";
 
+
 import Modal from "../model";
 function Login() {
+  const navigate = useNavigate();
 
 
   const [passShow, setPassShow] = useState(false);
@@ -78,7 +80,7 @@ function Login() {
       if (res.status === 201) {
         localStorage.setItem("usersdatatoken", res.result.token);
         setTimeout(() => {
-          history("/bot/deposit");
+          navigate("/bot/deposit");
         }, 1000);
         setInpval({ ...inpval, fname: "", password: "" });
         toast.success("Login successfully!", {

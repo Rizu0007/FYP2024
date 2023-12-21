@@ -356,7 +356,7 @@ const Start = () => {
                           for="name"
                           class="mb-1 text-xs sm:text-sm tracking-wide text-white"
                         >
-                          Product Size
+                          Product Type
                         </label>
                         <div class="relative">
                           <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-800">
@@ -369,11 +369,12 @@ const Start = () => {
                             value={productData.size}
 
                             class=" bg-black text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg  w-full py-4 focus:outline-none text-white border-2 border-[#00FFA2]"
-                          >
-                            <option value="PizzA">PizzA</option>
+                          >  <option value="PizzA">Choose </option>
+                            <option value="PizzA">Pizza</option>
                             <option value="BURGER">BURGER</option>
                             <option value="Samosa">Samosa</option>
                             <option value="COKE">COKE</option>
+                            <option value="PizzA">EShop</option>
 
 
                           </select>
@@ -393,7 +394,7 @@ const Start = () => {
                           <input
                             id="Price"
                             name="price"
-                            type="text"
+                            type="number"
                             class=" bg-black text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg  w-full py-4 focus:outline-none text-white border-2 border-[#00FFA2]"
                             placeholder="Product Price"
                             onChange={handleChange}

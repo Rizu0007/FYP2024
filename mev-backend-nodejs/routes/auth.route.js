@@ -21,6 +21,10 @@ router.post("/register", async (req, res) => {
     res.status(422).json({ error: "Fill in all the details" });
     return;
   }
+  if (pin !== confirmPin) {
+    res.status(422).json({ error: "PIN and Confirm PIN Not Match" });
+    return;
+  }
 
   try {
     const preuser = await User.findOne({ email: email });
@@ -147,7 +151,7 @@ router.post("/verify-pin-code", authenticate, async (req, res) => {
   const { pin } = req.body;
   
   try {
-    const isMatch = (req.rootUser.pin === pin); // Check if the provided PIN matches the user's PIN
+    const isMatch = await bcrypt.compare(pin, req.rootUser.pin); // Comparing hashed PINs
     if (isMatch) {
       res.status(201).json({ status: 201, message: "PIN code verified successfully" });
     } else {
@@ -169,5 +173,48 @@ router.get("/retrieve-seed-phrase", authenticate, async (req, res) => {
     console.error("Error in retrieving seed phrase:", error);
   }
 });
+
+router.post("/change-pin", authenticate, async (req, res) => {
+  console.log("Change PIN request received");
+
+  const { newPin } = req.body;
+  if (!newPin || newPin.length < 6) {
+    return res.status(400).json({ error: "Invalid PIN format" });
+  }
+
+  try {
+    const hashedNewPin = await bcrypt.hash(newPin, 12);
+    req.rootUser.pin = hashedNewPin;
+    await req.rootUser.save();
+    console.log("PIN changed successfully for user:", req.rootUser._id);
+    res.status(200).json({ message: "PIN updated successfully" });
+  } catch (error) {
+    console.error("Error updating PIN:", error);
+    res.status(500).json({ error: "Error updating PIN" });
+  }
+});
+
+
+router.post("/change-password", authenticate, async (req, res) => {
+  console.log("Change PIN request ss");
+
+  const { newPassword } = req.body;
+  if (!newPassword || newPassword.length < 6) {
+    return res.status(400).json({ error: "Invalid password format" });
+  }
+
+  try {
+    const hashedNewPassword = await bcrypt.hash(newPassword, 12);
+    req.rootUser.password = hashedNewPassword;
+    await req.rootUser.save();
+    console.log("Password changed successfully for user:", req.rootUser._id);
+    res.status(200).json({ message: "Password updated successfully" });
+  } catch (error) {
+    console.error("Error updating password:", error);
+    res.status(500).json({ error: "Error updating password" });
+  }
+});
+
+
 
 module.exports = router;
