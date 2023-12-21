@@ -6,6 +6,10 @@ import "../../assets/css/global.css";
 import { LoginContext } from "../ContextProvider";
 import { ethers } from "ethers";
 import axios from 'axios';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 
 const Start = () => {
@@ -118,6 +122,7 @@ const Start = () => {
 
       const data = await response.json();
       console.log("Response data: ", data); // Debugging
+      toast.success('Product added successfully!');
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -127,6 +132,15 @@ const Start = () => {
     } catch (error) {
       console.error('Error posting data', error);
     }
+    toast.success('Product added successfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
 
@@ -444,6 +458,8 @@ const Start = () => {
                   </div>
                 </div>
               </div>
+              <ToastContainer />
+
             </div>
           </>
         ) : null}
